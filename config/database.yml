@@ -17,6 +17,10 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  host: localhost
+  port: 5432
+  username: <%= ENV.fetch("USERNAME") { "rails_isp" } %>
+  password: <%= ENV.fetch("PASS") { "root" } %>
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -25,7 +29,7 @@ development:
   <<: *default
   database: myISP_development
 
-  # The specified database role being used to connect to postgres.
+  # The spe:wqcified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.

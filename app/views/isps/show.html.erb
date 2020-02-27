@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @isp.name %>
+</p>
+
+<p>
+  <strong>Lowest price:</strong>
+  <%= @isp.lowest_price %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @isp.rating %>
+</p>
+
+<p>
+  <strong>Max speed:</strong>
+  <%= @isp.max_speed %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @isp.description %>
+</p>
+
+<p>
+  <strong>Contact no:</strong>
+  <%= @isp.contact_no %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @isp.email %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @isp.image %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @isp.url %>
+</p>
+
+<%= link_to 'Edit', edit_isp_path(@isp) %> |
+<%= link_to 'Back', isps_path %>
