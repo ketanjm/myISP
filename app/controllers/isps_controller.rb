@@ -18,8 +18,9 @@ class IspsController < ApplicationController
   end
 
   # GET /isps/1/edit
-  def edit
-  end
+  #def edit
+  #  redirect_to :index  	  
+  #end
 
   # POST /isps
   # POST /isps.json
@@ -69,6 +70,6 @@ class IspsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def isp_params
-      params.require(:isp).permit(:name, :lowest_price, :rating, :max_speed, :description, :contact_no, :email, :image, :url)
+      params.require(:isp).permit(:id, :name, :lowest_price, :rating, :max_speed, :description, :contact_no, :email, :image, :url, :created_at, :updated_at)
     end
 end

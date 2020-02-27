@@ -8,20 +8,21 @@ export default class IspsList extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchPostsList();
+    this.fetchIspsList();
   }
 
-  fetchPostsList = () => {
+  fetchIspsList = () => {
     fetch('/isps.json').
       then((response) => response.json()).
       then((isps) =>  this.setState({ isps }));
   };
   
   handleDelete = (ispId) => {
-    fetch(`/isps/${ispId}`, { method: 'delete' }).
+    const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");    
+    fetch(`/isps/${ispId}.json`, { method: 'delete',headers: { 'X-CSRF-Token': csrf }, }).
       then((response) => {
         alert('Post deleted successfully')
-        this.fetchPostsList();
+        this.fetchIspsList();
       });
   }
 
@@ -30,6 +31,7 @@ export default class IspsList extends React.Component {
     return (
       <div>
         <h3>All Isps</h3>
+        <Link to='/isps/new'>New Post</Link>
         <table>
           <thead>
             <tr>
@@ -66,7 +68,14 @@ export default class IspsList extends React.Component {
                   <td>{isp.url }</td>
                   <td>{isp.image }</td>
                   <td>{isp.description }</td>
-                  <td></td>
+                  <td>
+                    <Link to={`/isps/${isp.id}/edit`}>
+                      Edit
+                    </Link>
+                    <button onClick={() => this.handleDelete(isp.id) }>
+                      Delete
+                    </button>
+                  </td>
                 </tr>
               )
             })
