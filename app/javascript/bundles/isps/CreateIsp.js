@@ -40,7 +40,7 @@ export default class CreateIsp extends React.Component {
       <div>
         <h3>New Isp</h3>
         <div>
-          <label>Title: </label>
+          <label>Name: </label>
           <input
             type='text'
             name='name'

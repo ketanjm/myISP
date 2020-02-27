@@ -31,7 +31,7 @@ export default class IspsList extends React.Component {
     return (
       <div>
         <h3>All Isps</h3>
-        <Link to='/isps/new'>New Post</Link>
+        <Link to='/isps/new'>New Isp</Link>
         <table>
           <thead>
             <tr>
